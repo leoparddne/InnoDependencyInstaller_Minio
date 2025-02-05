@@ -30,6 +30,8 @@ UninstallDisplayIcon={app}\MyProgram.exe
 OutputDir={#SourcePath}\bin
 AllowNoIcons=yes
 PrivilegesRequired=admin
+; 修复杀毒软件误报问题
+Compression=lzma
 
 ; remove next line if you only deploy 32-bit binaries and dependencies
 ArchitecturesInstallIn64BitMode=x64
@@ -40,6 +42,8 @@ Name: fr; MessagesFile: "compiler:Languages\French.isl"
 Name: it; MessagesFile: "compiler:Languages\Italian.isl"
 Name: de; MessagesFile: "compiler:Languages\German.isl"
 Name: es; MessagesFile: "compiler:Languages\Spanish.isl"
+; 添加中文简体 http://www.jrsoftware.org/files/istrans/
+Name: cn; MessagesFile: "compiler:Languages\Chinese.isl"
 
 [Files]
 Source: "example\MyProg-x64.exe"; DestDir: "{app}"; DestName: "MyProg.exe"; Check: Dependency_IsX64; Flags: ignoreversion
