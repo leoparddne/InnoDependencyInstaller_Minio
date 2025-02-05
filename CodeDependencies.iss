@@ -1,7 +1,9 @@
-﻿[Code]
+[Code]
 // https://github.com/DomGries/InnoDependencyInstaller
 
 // types and variables
+#define MINIOURL 'http://192.168.2.211:9000/public/'
+
 type
   TDependency_Entry = record
     Filename: String;
@@ -251,7 +253,7 @@ begin
     Dependency_Add('dotnetfx35.exe',
       '/lang:enu /passive /norestart',
       '.NET Framework 3.5 Service Pack 1',
-      'https://download.microsoft.com/download/2/0/E/20E90413-712F-438C-988E-FDAA79A8AC3D/dotnetfx35.exe',
+      '{#MINIOURL}dotnetfx35.exe',
       '', False, False);
   end;
 end;
@@ -263,7 +265,7 @@ begin
     Dependency_Add('dotNetFx40_Full_setup.exe',
       '/lcid ' + IntToStr(GetUILanguage) + ' /passive /norestart',
       '.NET Framework 4.0',
-      'https://download.microsoft.com/download/1/B/E/1BE39E79-7E39-46A3-96FF-047F95396215/dotNetFx40_Full_setup.exe',
+      '{#MINIOURL}dotNetFx40_Full_setup.exe',
       '', False, False);
   end;
 end;
@@ -275,7 +277,7 @@ begin
     Dependency_Add('dotnetfx45.exe',
       '/lcid ' + IntToStr(GetUILanguage) + ' /passive /norestart',
       '.NET Framework 4.5.2',
-      'https://go.microsoft.com/fwlink/?LinkId=397707',
+      '{#MINIOURL}NDP452-KB2901954-Web.exe',
       '', False, False);
   end;
 end;
@@ -287,7 +289,7 @@ begin
     Dependency_Add('dotnetfx46.exe',
       '/lcid ' + IntToStr(GetUILanguage) + ' /passive /norestart',
       '.NET Framework 4.6.2',
-      'https://go.microsoft.com/fwlink/?linkid=780596',
+      '{#MINIOURL}ndp462-kb3151802-web.exe',
       '', False, False);
   end;
 end;
@@ -299,7 +301,7 @@ begin
     Dependency_Add('dotnetfx47.exe',
       '/lcid ' + IntToStr(GetUILanguage) + ' /passive /norestart',
       '.NET Framework 4.7.2',
-      'https://go.microsoft.com/fwlink/?LinkId=863262',
+      '{#MINIOURL}ndp472-kb4054531-web.exe',
       '', False, False);
   end;
 end;
@@ -311,7 +313,7 @@ begin
       Dependency_Add('dotnetfx48.exe',
         '/lcid ' + IntToStr(GetUILanguage) + ' /passive /norestart',
         '.NET Framework 4.8',
-        'https://go.microsoft.com/fwlink/?LinkId=2085155',
+        '{#MINIOURL}ndp48-web.exe',
         '', False, False);
     end;
 end;
@@ -323,7 +325,7 @@ begin
     Dependency_Add('dotnetfx481.exe',
       '/lcid ' + IntToStr(GetUILanguage) + ' /passive /norestart',
       '.NET Framework 4.8.1',
-      'https://go.microsoft.com/fwlink/?LinkId=2203304',
+      '{#MINIOURL}NDP481-Web.exe',
       '', False, False);
   end;
 end;
@@ -335,7 +337,7 @@ begin
     Dependency_Add('netcore31' + Dependency_ArchSuffix + '.exe',
       '/lcid ' + IntToStr(GetUILanguage) + ' /passive /norestart',
       '.NET Core Runtime 3.1.32' + Dependency_ArchTitle,
-      Dependency_String('https://download.visualstudio.microsoft.com/download/pr/de4b3438-24a2-4d1d-a845-97355cf97b71/515abb880478b49f7c1bced8fbf07b16/dotnet-runtime-3.1.32-win-x86.exe', 'https://download.visualstudio.microsoft.com/download/pr/476eba79-f17f-49c8-a213-0f24a22cd026/37c02de81ff5b76ac57a5427462395f1/dotnet-runtime-3.1.32-win-x64.exe'),
+      Dependency_String('{#MINIOURL}dotnet-runtime-3.1.32-win-x86.exe', '{#MINIOURL}dotnet-runtime-3.1.32-win-x64.exe'),
       '', False, False);
   end;
 end;
@@ -347,7 +349,7 @@ begin
     Dependency_Add('netcore31asp' + Dependency_ArchSuffix + '.exe',
       '/lcid ' + IntToStr(GetUILanguage) + ' /passive /norestart',
       'ASP.NET Core Runtime 3.1.32' + Dependency_ArchTitle,
-      Dependency_String('https://download.visualstudio.microsoft.com/download/pr/63b482d2-04b2-4dd4-baaf-d1e78de80738/40321091c872f4e77337b68fc61a5a07/aspnetcore-runtime-3.1.32-win-x86.exe', 'https://download.visualstudio.microsoft.com/download/pr/98910750-2644-472c-ab2b-17f315ccb953/c2a4c223ee11e2eec7d13744e7a45547/aspnetcore-runtime-3.1.32-win-x64.exe'),
+      Dependency_String('{#MINIOURL}aspnetcore-runtime-3.1.32-win-x86.exe', '{#MINIOURL}aspnetcore-runtime-3.1.32-win-x64.exe'),
       '', False, False);
   end;
 end;
@@ -359,7 +361,7 @@ begin
     Dependency_Add('netcore31desktop' + Dependency_ArchSuffix + '.exe',
       '/lcid ' + IntToStr(GetUILanguage) + ' /passive /norestart',
       '.NET Desktop Runtime 3.1.32' + Dependency_ArchTitle,
-      Dependency_String('https://download.visualstudio.microsoft.com/download/pr/3f353d2c-0431-48c5-bdf6-fbbe8f901bb5/542a4af07c1df5136a98a1c2df6f3d62/windowsdesktop-runtime-3.1.32-win-x86.exe', 'https://download.visualstudio.microsoft.com/download/pr/b92958c6-ae36-4efa-aafe-569fced953a5/1654639ef3b20eb576174c1cc200f33a/windowsdesktop-runtime-3.1.32-win-x64.exe'),
+      Dependency_String('{#MINIOURL}windowsdesktop-runtime-3.1.32-win-x86.exe', '{#MINIOURL}windowsdesktop-runtime-3.1.32-win-x64.exe'),
       '', False, False);
   end;
 end;
@@ -371,7 +373,7 @@ begin
     Dependency_Add('dotnet50' + Dependency_ArchSuffix + '.exe',
       '/lcid ' + IntToStr(GetUILanguage) + ' /passive /norestart',
       '.NET Runtime 5.0.17' + Dependency_ArchTitle,
-      Dependency_String('https://download.visualstudio.microsoft.com/download/pr/54683c13-6b04-4d7d-b4d4-1f055b50ea43/e99048e2840d57040e8312058853a5b9/dotnet-runtime-5.0.17-win-x86.exe', 'https://download.visualstudio.microsoft.com/download/pr/a0832b5a-6900-442b-af79-6ffddddd6ba4/e2df0b25dd851ee0b38a86947dd0e42e/dotnet-runtime-5.0.17-win-x64.exe'),
+      Dependency_String('{#MINIOURL}dotnet-runtime-5.0.17-win-x86.exe', '{#MINIOURL}dotnet-runtime-5.0.17-win-x64.exe'),
       '', False, False);
   end;
 end;
@@ -383,7 +385,7 @@ begin
     Dependency_Add('dotnet50asp' + Dependency_ArchSuffix + '.exe',
       '/lcid ' + IntToStr(GetUILanguage) + ' /passive /norestart',
       'ASP.NET Core Runtime 5.0.17' + Dependency_ArchTitle,
-      Dependency_String('https://download.visualstudio.microsoft.com/download/pr/4bfa247d-321d-4b29-a34b-62320849059b/8df7a17d9aad4044efe9b5b1c423e82c/aspnetcore-runtime-5.0.17-win-x86.exe', 'https://download.visualstudio.microsoft.com/download/pr/3789ec90-2717-424f-8b9c-3adbbcea6c16/2085cc5ff077b8789ff938015392e406/aspnetcore-runtime-5.0.17-win-x64.exe'),
+      Dependency_String('{#MINIOURL}aspnetcore-runtime-5.0.17-win-x86.exe', '{#MINIOURL}aspnetcore-runtime-5.0.17-win-x64.exe'),
       '', False, False);
   end;
 end;
@@ -395,7 +397,7 @@ begin
     Dependency_Add('dotnet50desktop' + Dependency_ArchSuffix + '.exe',
       '/lcid ' + IntToStr(GetUILanguage) + ' /passive /norestart',
       '.NET Desktop Runtime 5.0.17' + Dependency_ArchTitle,
-      Dependency_String('https://download.visualstudio.microsoft.com/download/pr/b6fe5f2a-95f4-46f1-9824-f5994f10bc69/db5ec9b47ec877b5276f83a185fdb6a0/windowsdesktop-runtime-5.0.17-win-x86.exe', 'https://download.visualstudio.microsoft.com/download/pr/3aa4e942-42cd-4bf5-afe7-fc23bd9c69c5/64da54c8864e473c19a7d3de15790418/windowsdesktop-runtime-5.0.17-win-x64.exe'),
+      Dependency_String('{#MINIOURL}windowsdesktop-runtime-5.0.17-win-x86.exe', '{#MINIOURL}windowsdesktop-runtime-5.0.17-win-x64.exe'),
       '', False, False);
   end;
 end;
@@ -407,7 +409,7 @@ begin
     Dependency_Add('dotnet60' + Dependency_ArchSuffix + '.exe',
       '/lcid ' + IntToStr(GetUILanguage) + ' /passive /norestart',
       '.NET Runtime 6.0.20' + Dependency_ArchTitle,
-      Dependency_String('https://download.visualstudio.microsoft.com/download/pr/3be5ee3a-c171-4cd2-ab98-00ca5c11eb8c/6fd31294b0c6c670ab5c060592935203/dotnet-runtime-6.0.20-win-x86.exe', 'https://download.visualstudio.microsoft.com/download/pr/3cfb6d2a-afbe-4ae7-8e5b-776f350654cc/6e8d858a60fe15381f3c84d8ca66c4a7/dotnet-runtime-6.0.20-win-x64.exe'),
+      Dependency_String('{#MINIOURL}dotnet-runtime-6.0.20-win-x86.exe', '{#MINIOURL}dotnet-runtime-6.0.20-win-x64.exe'),
       '', False, False);
   end;
 end;
@@ -419,7 +421,7 @@ begin
     Dependency_Add('dotnet60asp' + Dependency_ArchSuffix + '.exe',
       '/lcid ' + IntToStr(GetUILanguage) + ' /passive /norestart',
       'ASP.NET Core Runtime 6.0.20' + Dependency_ArchTitle,
-      Dependency_String('https://download.visualstudio.microsoft.com/download/pr/0e37c76c-53b4-4eea-8f5c-6ad2f8d5fe3c/88a8620329ced1aee271992a5b56d236/aspnetcore-runtime-6.0.20-win-x86.exe', 'https://download.visualstudio.microsoft.com/download/pr/be9f67fd-60af-45b1-9bca-a7bcc0e86e7e/6a750f7d7432937b3999bb4c5325062a/aspnetcore-runtime-6.0.20-win-x64.exe'),
+      Dependency_String('{#MINIOURL}aspnetcore-runtime-6.0.20-win-x86.exe', '{#MINIOURL}aspnetcore-runtime-6.0.20-win-x64.exe'),
       '', False, False);
   end;
 end;
@@ -431,7 +433,7 @@ begin
     Dependency_Add('dotnet60desktop' + Dependency_ArchSuffix + '.exe',
       '/lcid ' + IntToStr(GetUILanguage) + ' /passive /norestart',
       '.NET Desktop Runtime 6.0.20' + Dependency_ArchTitle,
-      Dependency_String('https://download.visualstudio.microsoft.com/download/pr/0413b619-3eb2-4178-a78e-8d1aafab1a01/5247f08ea3c13849b68074a2142fbf31/windowsdesktop-runtime-6.0.20-win-x86.exe', 'https://download.visualstudio.microsoft.com/download/pr/1146f414-17c7-4184-8b10-1addfa5315e4/39db5573efb029130add485566320d74/windowsdesktop-runtime-6.0.20-win-x64.exe'),
+      Dependency_String('{#MINIOURL}windowsdesktop-runtime-6.0.20-win-x86.exe', '{#MINIOURL}windowsdesktop-runtime-6.0.20-win-x64.exe'),
       '', False, False);
   end;
 end;
@@ -443,7 +445,7 @@ begin
     Dependency_Add('dotnet70' + Dependency_ArchSuffix + '.exe',
       '/lcid ' + IntToStr(GetUILanguage) + ' /passive /norestart',
       '.NET Runtime 7.0.9' + Dependency_ArchTitle,
-      Dependency_String('https://download.visualstudio.microsoft.com/download/pr/305a85f5-2b0d-459b-b2ea-caf71b98d25d/805edc610efa49432e5e268bbba4eacb/dotnet-runtime-7.0.9-win-x86.exe', 'https://download.visualstudio.microsoft.com/download/pr/73058888-02a4-4f6d-b3cd-845531c2d7d0/a785e54b7f12046c00714b2ba759e173/dotnet-runtime-7.0.9-win-x64.exe'),
+      Dependency_String('{#MINIOURL}dotnet-runtime-7.0.9-win-x86.exe', '{#MINIOURL}dotnet-runtime-7.0.9-win-x64.exe'),
       '', False, False);
   end;
 end;
@@ -455,7 +457,7 @@ begin
     Dependency_Add('dotnet70asp' + Dependency_ArchSuffix + '.exe',
       '/lcid ' + IntToStr(GetUILanguage) + ' /passive /norestart',
       'ASP.NET Core Runtime 7.0.9' + Dependency_ArchTitle,
-      Dependency_String('https://download.visualstudio.microsoft.com/download/pr/6ec3b357-31df-4b18-948f-4979a5b4b99f/fdeec71fc7f0f34ecfa0cb8b2b897da0/aspnetcore-runtime-7.0.9-win-x86.exe', 'https://download.visualstudio.microsoft.com/download/pr/edd9c9b1-0c49-4297-9197-9392b2462318/d06fedaefb256d801ce94ade76af3ad9/aspnetcore-runtime-7.0.9-win-x64.exe'),
+      Dependency_String('{#MINIOURL}aspnetcore-runtime-7.0.9-win-x86.exe', '{#MINIOURL}aspnetcore-runtime-7.0.9-win-x64.exe'),
       '', False, False);
   end;
 end;
@@ -467,7 +469,7 @@ begin
     Dependency_Add('dotnet70desktop' + Dependency_ArchSuffix + '.exe',
       '/lcid ' + IntToStr(GetUILanguage) + ' /passive /norestart',
       '.NET Desktop Runtime 7.0.9' + Dependency_ArchTitle,
-      Dependency_String('https://download.visualstudio.microsoft.com/download/pr/139b19d0-2d39-48ce-b59a-aec437509c20/ea6a2711eec53660c3b14d78b9fb2963/windowsdesktop-runtime-7.0.9-win-x86.exe', 'https://download.visualstudio.microsoft.com/download/pr/7727acb3-25ca-473b-a392-75afeb33cab7/f11f0477fd2fcfbb3111881377d0c9bb/windowsdesktop-runtime-7.0.9-win-x64.exe'),
+      Dependency_String('{#MINIOURL}windowsdesktop-runtime-7.0.9-win-x86.exe', '{#MINIOURL}windowsdesktop-runtime-7.0.9-win-x64.exe'),
       '', False, False);
   end;
 end;
@@ -480,7 +482,7 @@ begin
     Dependency_Add('dotnet80' + Dependency_ArchSuffix + '.exe',
       '/lcid ' + IntToStr(GetUILanguage) + ' /passive /norestart',
       '.NET Runtime 8.0.10' + Dependency_ArchTitle,
-      Dependency_String('https://download.visualstudio.microsoft.com/download/pr/3f9cf5a6-d4d6-4fe0-a02b-cd700df1899b/75c95e00aab7258aed5f4ffe80526803/dotnet-runtime-8.0.10-win-x86.exe', 'https://download.visualstudio.microsoft.com/download/pr/f55ed80e-ba58-4ac8-a2b3-f2227cd628de/6fabf1c613cf9386d14ddbaaca1a5eb8/dotnet-runtime-8.0.10-win-x64.exe'),
+      Dependency_String('{#MINIOURL}dotnet-runtime-8.0.10-win-x86.exe', '{#MINIOURL}dotnet-runtime-8.0.10-win-x64.exe'),
       '', False, False);
   end;
 end;
@@ -492,7 +494,7 @@ begin
     Dependency_Add('dotnet80asp' + Dependency_ArchSuffix + '.exe',
       '/lcid ' + IntToStr(GetUILanguage) + ' /passive /norestart',
       'ASP.NET Core Runtime 8.0.10' + Dependency_ArchTitle,
-      Dependency_String('https://download.visualstudio.microsoft.com/download/pr/175256c9-8d8d-4f9a-a873-ff7b36161506/1b91f2b288e6077e30714485ebe8acb5/aspnetcore-runtime-8.0.10-win-x86.exe', 'https://download.visualstudio.microsoft.com/download/pr/a17b907f-8457-45a8-90db-53f2665ee49e/49bccd33593ebceb2847674fe5fd768e/aspnetcore-runtime-8.0.10-win-x64.exe'),
+      Dependency_String('{#MINIOURL}aspnetcore-runtime-8.0.10-win-x86.exe', '{#MINIOURL}aspnetcore-runtime-8.0.10-win-x64.exe'),
       '', False, False);
   end;
 end;
@@ -504,7 +506,7 @@ begin
     Dependency_Add('dotnet80desktop' + Dependency_ArchSuffix + '.exe',
       '/lcid ' + IntToStr(GetUILanguage) + ' /passive /norestart',
       '.NET Desktop Runtime 8.0.10' + Dependency_ArchTitle,
-      Dependency_String('https://download.visualstudio.microsoft.com/download/pr/9836a475-66af-47eb-a726-8046c47ce6d5/ccb7d60db407a6d022a856852ef9e763/windowsdesktop-runtime-8.0.10-win-x86.exe', 'https://download.visualstudio.microsoft.com/download/pr/f398d462-9d4e-4b9c-abd3-86c54262869a/4a8e3a10ca0a9903a989578140ef0499/windowsdesktop-runtime-8.0.10-win-x64.exe'),
+      Dependency_String('{#MINIOURL}windowsdesktop-runtime-8.0.10-win-x86.exe', '{#MINIOURL}windowsdesktop-runtime-8.0.10-win-x64.exe'),
       '', False, False);
   end;
 end;
@@ -516,7 +518,7 @@ begin
     Dependency_Add('dotnet90' + Dependency_ArchSuffix + '.exe',
       '/lcid ' + IntToStr(GetUILanguage) + ' /passive /norestart',
       '.NET Runtime 9.0.0' + Dependency_ArchTitle,
-      Dependency_String('https://download.visualstudio.microsoft.com/download/pr/0e89cce9-dc02-423c-a657-0c2b421edf21/af2e916785775fe7e023b953af404db5/dotnet-runtime-9.0.0-win-x86.exe', 'https://download.visualstudio.microsoft.com/download/pr/99bd07c2-c95c-44dc-9d47-36d3b18df240/bdf26c62f69c1b783687c1dce83ccf7a/dotnet-runtime-9.0.0-win-x64.exe'),
+      Dependency_String('{#MINIOURL}dotnet-runtime-9.0.0-win-x86.exe', '{#MINIOURL}dotnet-runtime-9.0.0-win-x64.exe'),
       '', False, False);
   end;
 end;
@@ -528,7 +530,7 @@ begin
     Dependency_Add('dotnet90asp' + Dependency_ArchSuffix + '.exe',
       '/lcid ' + IntToStr(GetUILanguage) + ' /passive /norestart',
       'ASP.NET Core Runtime 9.0.0' + Dependency_ArchTitle,
-      Dependency_String('https://download.visualstudio.microsoft.com/download/pr/70c1a68c-e5e4-45ef-9f2c-df1d3f195a2e/6b8e20fe1e45f886e464908cf18efd96/aspnetcore-runtime-9.0.0-win-x86.exe', 'https://download.visualstudio.microsoft.com/download/pr/815e6104-b92c-4cd5-8971-cba2f685002a/37befaa217f3269a152016da80a922c1/aspnetcore-runtime-9.0.0-win-x64.exe'),
+      Dependency_String('{#MINIOURL}aspnetcore-runtime-9.0.0-win-x86.exe', '{#MINIOURL}aspnetcore-runtime-9.0.0-win-x64.exe'),
       '', False, False);
   end;
 end;
@@ -540,7 +542,7 @@ begin
     Dependency_Add('dotnet90desktop' + Dependency_ArchSuffix + '.exe',
       '/lcid ' + IntToStr(GetUILanguage) + ' /passive /norestart',
       '.NET Desktop Runtime 9.0.0' + Dependency_ArchTitle,
-      Dependency_String('https://download.visualstudio.microsoft.com/download/pr/8dfbde7b-c316-418d-934a-d3246253f342/69c6a35b77a4f01b95588e1df2bddf9a/windowsdesktop-runtime-9.0.0-win-x86.exe', 'https://download.visualstudio.microsoft.com/download/pr/685792b6-4827-4dca-a971-bce5d7905170/1bf61b02151bc56e763dc711e45f0e1e/windowsdesktop-runtime-9.0.0-win-x64.exe'),
+      Dependency_String('{#MINIOURL}windowsdesktop-runtime-9.0.0-win-x86.exe', '{#MINIOURL}windowsdesktop-runtime-9.0.0-win-x64.exe'),
       '', False, False);
   end;
 end;
@@ -552,7 +554,7 @@ begin
     Dependency_Add('vcredist2005' + Dependency_ArchSuffix + '.exe',
       '/q',
       'Visual C++ 2005 Service Pack 1 Redistributable' + Dependency_ArchTitle,
-      Dependency_String('https://download.microsoft.com/download/8/B/4/8B42259F-5D70-43F4-AC2E-4B208FD8D66A/vcredist_x86.EXE', 'https://download.microsoft.com/download/8/B/4/8B42259F-5D70-43F4-AC2E-4B208FD8D66A/vcredist_x64.EXE'),
+      Dependency_String('{#MINIOURL}vc2005redist_x86.EXE', '{#MINIOURL}vc2005redist_x64.EXE'),
       '', False, False);
   end;
 end;
@@ -564,7 +566,7 @@ begin
     Dependency_Add('vcredist2008' + Dependency_ArchSuffix + '.exe',
       '/q',
       'Visual C++ 2008 Service Pack 1 Redistributable' + Dependency_ArchTitle,
-      Dependency_String('https://download.microsoft.com/download/5/D/8/5D8C65CB-C849-4025-8E95-C3966CAFD8AE/vcredist_x86.exe', 'https://download.microsoft.com/download/5/D/8/5D8C65CB-C849-4025-8E95-C3966CAFD8AE/vcredist_x64.exe'),
+      Dependency_String('{#MINIOURL}vc2008redist_x86.exe', '{#MINIOURL}vc2008redist_x64.exe'),
       '', False, False);
   end;
 end;
@@ -576,7 +578,7 @@ begin
     Dependency_Add('vcredist2010' + Dependency_ArchSuffix + '.exe',
       '/passive /norestart',
       'Visual C++ 2010 Service Pack 1 Redistributable' + Dependency_ArchTitle,
-      Dependency_String('https://download.microsoft.com/download/1/6/5/165255E7-1014-4D0A-B094-B6A430A6BFFC/vcredist_x86.exe', 'https://download.microsoft.com/download/1/6/5/165255E7-1014-4D0A-B094-B6A430A6BFFC/vcredist_x64.exe'),
+      Dependency_String('{#MINIOURL}vc2010redist_x86.exe', '{#MINIOURL}vc2010redist_x64.exe'),
       '', False, False);
   end;
 end;
@@ -588,7 +590,7 @@ begin
     Dependency_Add('vcredist2012' + Dependency_ArchSuffix + '.exe',
       '/passive /norestart',
       'Visual C++ 2012 Update 4 Redistributable' + Dependency_ArchTitle,
-      Dependency_String('https://download.microsoft.com/download/1/6/B/16B06F60-3B20-4FF2-B699-5E9B7962F9AE/VSU_4/vcredist_x86.exe', 'https://download.microsoft.com/download/1/6/B/16B06F60-3B20-4FF2-B699-5E9B7962F9AE/VSU_4/vcredist_x64.exe'),
+      Dependency_String('{#MINIOURL}vc2012redist_x86.exe', '{#MINIOURL}vc2012redist_x64.exe'),
       '', False, False);
   end;
 end;
@@ -600,7 +602,7 @@ begin
     Dependency_Add('vcredist2013' + Dependency_ArchSuffix + '.exe',
       '/passive /norestart',
       'Visual C++ 2013 Update 5 Redistributable' + Dependency_ArchTitle,
-      Dependency_String('https://download.visualstudio.microsoft.com/download/pr/10912113/5da66ddebb0ad32ebd4b922fd82e8e25/vcredist_x86.exe', 'https://download.visualstudio.microsoft.com/download/pr/10912041/cee5d6bca2ddbcd039da727bf4acb48a/vcredist_x64.exe'),
+      Dependency_String('{#MINIOURL}vc2013redist_x86.exe', '{#MINIOURL}vc2013redist_x64.exe'),
       '', False, False);
   end;
 end;
@@ -612,7 +614,7 @@ begin
     Dependency_Add('vcredist2022' + Dependency_ArchSuffix + '.exe',
       '/passive /norestart',
       'Visual C++ 2015-2022 Redistributable' + Dependency_ArchTitle,
-      Dependency_String('https://aka.ms/vs/17/release/vc_redist.x86.exe', 'https://aka.ms/vs/17/release/vc_redist.x64.exe'),
+      Dependency_String('{#MINIOURL}VC_2015_2022_redist.x86.exe', '{#MINIOURL}VC_2015_2022_redist.x64.exe'),
       '', False, False);
   end;
 end;
@@ -626,7 +628,7 @@ begin
   Dependency_Add('dxwebsetup.exe',
     '/q',
     'DirectX Runtime',
-    'https://download.microsoft.com/download/1/7/1/1718CCC4-6315-4D8E-9543-8E28A4E18C4C/dxwebsetup.exe',
+    '{#MINIOURL}dxwebsetup.exe',
     '', True, False);
 end;
 
@@ -640,7 +642,7 @@ begin
     Dependency_Add('sql2008express' + Dependency_ArchSuffix + '.exe',
       '/QS /IACCEPTSQLSERVERLICENSETERMS /ACTION=INSTALL /FEATURES=SQL /INSTANCENAME=MSSQLSERVER',
       'SQL Server 2008 R2 Service Pack 2 Express',
-      Dependency_String('https://download.microsoft.com/download/0/4/B/04BE03CD-EAF3-4797-9D8D-2E08E316C998/SQLEXPR32_x86_ENU.exe', 'https://download.microsoft.com/download/0/4/B/04BE03CD-EAF3-4797-9D8D-2E08E316C998/SQLEXPR_x64_ENU.exe'),
+      Dependency_String('{#MINIOURL}SQLEXPR2008_32_x86_ENU.exe', '{#MINIOURL}SQLEXPR2008_x64_ENU.exe'),
       '', False, False);
   end;
 end;
@@ -655,7 +657,7 @@ begin
     Dependency_Add('sql2012express' + Dependency_ArchSuffix + '.exe',
       '/QS /IACCEPTSQLSERVERLICENSETERMS /ACTION=INSTALL /FEATURES=SQL /INSTANCENAME=MSSQLSERVER',
       'SQL Server 2012 Service Pack 4 Express',
-      Dependency_String('https://download.microsoft.com/download/B/D/E/BDE8FAD6-33E5-44F6-B714-348F73E602B6/SQLEXPR32_x86_ENU.exe', 'https://download.microsoft.com/download/B/D/E/BDE8FAD6-33E5-44F6-B714-348F73E602B6/SQLEXPR_x64_ENU.exe'),
+      Dependency_String('{#MINIOURL}SQLEXPR2012_32_x86_ENU.exe', '{#MINIOURL}SQLEXPR2012_x64_ENU.exe'),
       '', False, False);
   end;
 end;
@@ -670,7 +672,7 @@ begin
     Dependency_Add('sql2014express' + Dependency_ArchSuffix + '.exe',
       '/QS /IACCEPTSQLSERVERLICENSETERMS /ACTION=INSTALL /FEATURES=SQL /INSTANCENAME=MSSQLSERVER',
       'SQL Server 2014 Service Pack 3 Express',
-      Dependency_String('https://download.microsoft.com/download/3/9/F/39F968FA-DEBB-4960-8F9E-0E7BB3035959/SQLEXPR32_x86_ENU.exe', 'https://download.microsoft.com/download/3/9/F/39F968FA-DEBB-4960-8F9E-0E7BB3035959/SQLEXPR_x64_ENU.exe'),
+      Dependency_String('{#MINIOURL}SQLEXPR2014_32_x86_ENU.exe', '{#MINIOURL}SQLEXPR2014_x64_ENU.exe'),
       '', False, False);
   end;
 end;
@@ -685,7 +687,7 @@ begin
     Dependency_Add('sql2016express' + Dependency_ArchSuffix + '.exe',
       '/QS /IACCEPTSQLSERVERLICENSETERMS /ACTION=INSTALL /FEATURES=SQL /INSTANCENAME=MSSQLSERVER',
       'SQL Server 2016 Service Pack 3 Express',
-      'https://download.microsoft.com/download/f/a/8/fa83d147-63d1-449c-b22d-5fef9bd5bb46/SQLServer2016-SSEI-Expr.exe',
+      '{#MINIOURL}SQLServer2016-SSEI-Expr.exe',
       '', False, False);
   end;
 end;
@@ -700,7 +702,7 @@ begin
     Dependency_Add('sql2017express' + Dependency_ArchSuffix + '.exe',
       '/QS /IACCEPTSQLSERVERLICENSETERMS /ACTION=INSTALL /FEATURES=SQL /INSTANCENAME=MSSQLSERVER',
       'SQL Server 2017 Express',
-      'https://download.microsoft.com/download/5/E/9/5E9B18CC-8FD5-467E-B5BF-BADE39C51F73/SQLServer2017-SSEI-Expr.exe',
+      '{#MINIOURL}SQLServer2017-SSEI-Expr.exe',
       '', False, False);
   end;
 end;
@@ -715,7 +717,7 @@ begin
     Dependency_Add('sql2019express' + Dependency_ArchSuffix + '.exe',
       '/QS /IACCEPTSQLSERVERLICENSETERMS /ACTION=INSTALL /FEATURES=SQL /INSTANCENAME=MSSQLSERVER',
       'SQL Server 2019 Express',
-      'https://download.microsoft.com/download/7/f/8/7f8a9c43-8c8a-4f7c-9f92-83c18d96b681/SQL2019-SSEI-Expr.exe',
+      '{#MINIOURL}SQL2019-SSEI-Expr.exe',
       '', False, False);
   end;
 end;
@@ -730,7 +732,7 @@ begin
     Dependency_Add('sql2022express' + Dependency_ArchSuffix + '.exe',
       '/QS /IACCEPTSQLSERVERLICENSETERMS /ACTION=INSTALL /FEATURES=SQL /INSTANCENAME=MSSQLSERVER',
       'SQL Server 2022 Express',
-      'https://go.microsoft.com/fwlink/p/?linkid=2216019',
+      '{#MINIOURL}SQL2022-SSEI-Expr.exe',
       '', False, False);
   end;
 end;
@@ -742,22 +744,21 @@ begin
     Dependency_Add('MicrosoftEdgeWebview2Setup.exe',
       '/silent /install',
       'WebView2 Runtime',
-      'https://go.microsoft.com/fwlink/p/?LinkId=2124703',
+      '{#MINIOURL}MicrosoftEdgeWebview2Setup.exe',
       '', False, False);
   end;
 end;
 
-procedure Dependency_AddAccessDatabaseEngine2010;
-begin
-  // https://www.microsoft.com/en-us/download/details.aspx?id=13255
-  if not RegKeyExists(HKLM, 'SOFTWARE\Microsoft\Office\14.0\Access Connectivity Engine\Engines\ACE') then begin
-    Dependency_Add('AccessDatabaseEngine2010' + Dependency_ArchSuffix + '.exe',
-      '/quiet',
-      'Microsoft Access Database Engine 2010' + Dependency_ArchTitle,
-      Dependency_String('https://download.microsoft.com/download/2/4/3/24375141-E08D-4803-AB0E-10F2E3A07AAA/AccessDatabaseEngine.exe', 'https://download.microsoft.com/download/2/4/3/24375141-E08D-4803-AB0E-10F2E3A07AAA/AccessDatabaseEngine_X64.exe'),
-      '', False, False);
-  end;
-end;
+// procedure Dependency_AddAccessDatabaseEngine2010;
+// begin https://www.microsoft.com/en-us/download/details.aspx?id=13255
+  // if not RegKeyExists(HKLM, 'SOFTWARE\Microsoft\Office\14.0\Access Connectivity Engine\Engines\ACE') then begin
+    // Dependency_Add('AccessDatabaseEngine2010' + Dependency_ArchSuffix + '.exe',
+      // '/quiet',
+      // 'Microsoft Access Database Engine 2010' + Dependency_ArchTitle,
+      // Dependency_String('https://download.microsoft.com/download/2/4/3/24375141-E08D-4803-AB0E-10F2E3A07AAA/AccessDatabaseEngine.exe', 'https://download.microsoft.com/download/2/4/3/24375141-E08D-4803-AB0E-10F2E3A07AAA/AccessDatabaseEngine_X64.exe'),
+      // '', False, False);
+  // end;
+// end;
 
 procedure Dependency_AddAccessDatabaseEngine2016;
 begin
@@ -766,7 +767,7 @@ begin
     Dependency_Add('AccessDatabaseEngine2016' + Dependency_ArchSuffix + '.exe',
       '/quiet',
       'Microsoft Access Database Engine 2016' + Dependency_ArchTitle,
-      Dependency_String('https://download.microsoft.com/download/3/5/C/35C84C36-661A-44E6-9324-8786B8DBE231/accessdatabaseengine.exe', 'https://download.microsoft.com/download/3/5/C/35C84C36-661A-44E6-9324-8786B8DBE231/accessdatabaseengine_X64.exe'),
+      Dependency_String('{#MINIOURL}accessdatabaseengine2016.exe', '{#MINIOURL}accessdatabaseengine2016_X64.exe'),
       '', False, False);
   end;
 end;
